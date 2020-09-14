@@ -1,0 +1,24 @@
+#include "storagemanager.h"
+
+/**
+ * @brief StorageManager::save creates a store control to save
+ * @param fileName, file name to save
+ * @param fileContents, 
+ * @return
+ */
+int StorageManager::save(QString fileName, QString fileContents) {
+    StorageControl sc = StorageControl();
+    int response = sc.save(fileName, fileContents);
+    return response;
+}
+/**
+ * @brief StorageManager::load creates a storage control to load
+ * @param fileName
+ * @param fileContents
+ * @return 
+ */
+int StorageManager::load(QString fileName, QString& fileContents) {
+    StorageControl sc = StorageControl();
+    int response = sc.load(fileName, fileContents);
+    return response;
+}

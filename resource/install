@@ -1,0 +1,4 @@
+#!/bin/sh
+export PATH=$PATH:~/Qt/5.13.0/gcc_64/bin
+echo 'student' | sudo -S apt-get install qt5-default --yes > installOut.txt
+rm -rf installOut.txt

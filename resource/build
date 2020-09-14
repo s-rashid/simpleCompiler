@@ -1,0 +1,5 @@
+#!/bin/sh
+qmake -o Makefile scapes.pro > buildOut.txt
+make > makeOut.txt
+echo Build completed successfully
+rm -rf buildOut.txt makeOut.txt

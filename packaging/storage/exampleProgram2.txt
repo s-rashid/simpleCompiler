@@ -1,0 +1,6 @@
+dci a
+L1:rdi a
+cmp a 8
+jmr L1
+prt a
+end

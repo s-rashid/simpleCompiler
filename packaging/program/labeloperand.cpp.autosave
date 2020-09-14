@@ -1,0 +1,23 @@
+#include "labeloperand.h"
+
+LabelOperand::LabelOperand(Label* iden) : Operand () {
+    this->label = iden;
+}
+
+int LabelOperand::getValue() {
+    return this->label->getValue();
+}
+
+Label* LabelOperand::getIdentifier() {
+    return this->label;
+}
+/**
+ * @brief LabelOperand::write writes an operands data to a json object
+ * @param json object to be written to
+ */
+void LabelOperand::write(QJsonObject& json){
+    json["type"] = QString("LabelOperand");
+    QJsonObject labelJson;
+    this->label->write(labelJson);
+    json["label"] = labelJson;;
+}

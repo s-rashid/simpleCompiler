@@ -1,0 +1,31 @@
+#include "storagecontrol.h"
+/**
+ * @brief StorageControl::save, saves a string of instructions to a file
+ * @param fileName, file name to save to
+ * @param instructions, string of scapl code
+ * @return 0 on success 
+ */
+bool StorageControl::save(QString fileName, QString instructions){
+    QFile file (fileName);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) return -1;
+
+    QTextStream out(&file);
+    out << instructions << endl;
+    file.close();
+    return 0;
+}
+/**
+ * @brief StorageControl::load, reads the text from a file and stores it in memory
+ * @param fileName file name to read from
+ * @return instructions read from file at fileName
+ * @return 0 on success
+ */
+bool StorageControl::load(QString fileName, QString& instructions){
+    QFile file(fileName);
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) return -1;
+
+    QTextStream in(&file);
+    instructions = in.readAll();
+    file.close();
+    return 0;
+}

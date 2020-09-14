@@ -1,0 +1,17 @@
+#include "undeclaredvariableexception.h"
+/**
+ * @brief UndeclaredVariableException::UndeclaredVariableException
+ * @param op, name of undeclared variable
+ */
+UndeclaredVariableException::UndeclaredVariableException(QString& op) : SyntaxException () {
+    varName = op;
+}
+/**
+ * @brief UndeclaredVariableException::what creates error messege for undeclared variable exception
+ * @return 
+ */
+const char* UndeclaredVariableException::what() const noexcept {
+    QString str = "Undeclared variable \"" + varName + "\" found at line " + QString::number(lineNum) + ": " + line;
+    QByteArray bytes = str.toLocal8Bit();
+    return bytes.data();
+}
